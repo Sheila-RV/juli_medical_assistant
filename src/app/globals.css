@@ -1,0 +1,127 @@
+@import "tailwindcss";
+
+/* Paleta clínica clara: fondo gris azulado, tarjetas blancas, azul de marca. */
+:root {
+  --bg: #f4f6fa;
+  --surface: #ffffff;
+  --surface-2: #f5f7fb;
+  --ink: #0f172a;
+  --ink-soft: #475569;
+  --ink-faint: #94a3b8;
+  --line: #e3e8ef;
+  --primary: #2563eb;
+  --primary-soft: #eaf1ff;
+  --primary-line: #c7d8fe;
+  --primary-ink: #ffffff;
+  --navy: #0f172a;
+  --navy-ink: #ffffff;
+  --success: #15803d;
+  --success-soft: #dcfce7;
+  --warn: #b45309;
+  --warn-soft: #fef3c7;
+  --danger: #dc2626;
+  --danger-soft: #fee2e2;
+  --rec: #ef4444;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #0b1120;
+    --surface: #111827;
+    --surface-2: #172033;
+    --ink: #e5e9f0;
+    --ink-soft: #a3adbf;
+    --ink-faint: #6b7686;
+    --line: #243044;
+    --primary: #60a5fa;
+    --primary-soft: #16233f;
+    --primary-line: #1e3a6e;
+    --primary-ink: #0b1120;
+    --navy: #e5e9f0;
+    --navy-ink: #0b1120;
+    --success: #4ade80;
+    --success-soft: #0b2a1a;
+    --warn: #fbbf24;
+    --warn-soft: #33260a;
+    --danger: #f87171;
+    --danger-soft: #3b1111;
+    --rec: #f87171;
+  }
+}
+
+@theme inline {
+  --color-bg: var(--bg);
+  --color-surface: var(--surface);
+  --color-surface-2: var(--surface-2);
+  --color-ink: var(--ink);
+  --color-ink-soft: var(--ink-soft);
+  --color-ink-faint: var(--ink-faint);
+  --color-line: var(--line);
+  --color-primary: var(--primary);
+  --color-primary-soft: var(--primary-soft);
+  --color-primary-line: var(--primary-line);
+  --color-primary-ink: var(--primary-ink);
+  --color-navy: var(--navy);
+  --color-navy-ink: var(--navy-ink);
+  --color-success: var(--success);
+  --color-success-soft: var(--success-soft);
+  --color-warn: var(--warn);
+  --color-warn-soft: var(--warn-soft);
+  --color-danger: var(--danger);
+  --color-danger-soft: var(--danger-soft);
+  --color-rec: var(--rec);
+  --font-sans: var(--font-inter);
+}
+
+body {
+  background: var(--bg);
+  color: var(--ink);
+}
+
+@layer components {
+  .card {
+    @apply rounded-2xl border border-line bg-surface shadow-[0_1px_2px_rgba(15,23,42,0.04)];
+  }
+  /* Uso: class="btn btn-primary" | "btn btn-navy" | "btn btn-ghost" */
+  .btn {
+    @apply inline-flex items-center justify-center gap-2 rounded-lg px-4 py-2.5 text-sm font-medium transition
+      disabled:cursor-not-allowed disabled:opacity-50 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary;
+  }
+  .btn-primary {
+    @apply bg-primary text-primary-ink hover:brightness-110;
+  }
+  .btn-navy {
+    @apply bg-navy text-navy-ink hover:opacity-90;
+  }
+  .btn-ghost {
+    @apply border border-line bg-surface text-ink hover:bg-surface-2;
+  }
+  .btn-danger {
+    @apply border border-line bg-surface text-danger hover:bg-danger-soft;
+  }
+  .input {
+    @apply w-full rounded-lg border border-line bg-surface-2 px-3.5 py-2.5 text-sm text-ink placeholder:text-ink-faint
+      focus:border-primary focus:bg-surface focus:outline-none focus:ring-3 focus:ring-primary/15;
+  }
+  .label {
+    @apply text-xs font-medium text-ink-soft;
+  }
+  .badge {
+    @apply inline-flex items-center gap-1 rounded-md px-2 py-0.5 text-xs font-medium;
+  }
+}
+
+@keyframes pulse-ring {
+  0% { box-shadow: 0 0 0 0 color-mix(in srgb, var(--rec) 40%, transparent); }
+  100% { box-shadow: 0 0 0 18px transparent; }
+}
+.recording-pulse {
+  animation: pulse-ring 1.5s ease-out infinite;
+}
+
+@media print {
+  body { background: #fff; color: #000; }
+  .no-print { display: none !important; }
+  .print-area { border: none !important; box-shadow: none !important; }
+  .print-area textarea { border: none !important; background: transparent !important; resize: none; }
+}
