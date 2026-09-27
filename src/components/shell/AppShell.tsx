@@ -27,7 +27,7 @@ function Brand() {
   return (
     <Link href="/informes" className="flex items-center gap-2 text-primary">
       <Icon name="stethoscope" size={24} />
-      <span className="text-lg font-bold tracking-tight">MediScribe AI</span>
+      <span className="text-lg font-bold tracking-tight">Juli</span>
     </Link>
   );
 }

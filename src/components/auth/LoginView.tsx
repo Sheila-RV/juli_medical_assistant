@@ -60,7 +60,7 @@ export function LoginView({ next, demoAccounts }: { next: string; demoAccounts: 
       <aside className="relative hidden overflow-hidden bg-gradient-to-br from-blue-600 via-blue-700 to-indigo-800 p-12 text-white lg:flex lg:flex-col">
         <div className="flex items-center gap-2.5">
           <Icon name="stethoscope" size={28} />
-          <span className="text-xl font-bold tracking-tight">MediScribe AI</span>
+          <span className="text-xl font-bold tracking-tight">Juli</span>
         </div>
         <div className="my-auto max-w-md">
           <h1 className="text-4xl font-semibold leading-tight tracking-tight">Documenta la consulta mientras atiendes al paciente.</h1>
@@ -87,7 +87,7 @@ export function LoginView({ next, demoAccounts }: { next: string; demoAccounts: 
         <div className="w-full max-w-sm">
           <div className="mb-8 flex items-center gap-2 text-primary lg:hidden">
             <Icon name="stethoscope" size={26} />
-            <span className="text-lg font-bold tracking-tight">MediScribe AI</span>
+            <span className="text-lg font-bold tracking-tight">Juli</span>
           </div>
 
           <h2 className="text-2xl font-semibold tracking-tight">Iniciar sesión</h2>

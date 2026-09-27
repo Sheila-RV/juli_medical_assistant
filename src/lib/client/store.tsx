@@ -58,7 +58,7 @@ export function useApp() {
 
 export function AppProvider({ user, children }: { user: PublicUser | null; children: React.ReactNode }) {
   // Cada médico tiene su propio espacio en el navegador: informes, audios y plantillas no se mezclan.
-  const ns = `mediscribe:${user?.id ?? "anon"}`;
+  const ns = `juli:${user?.id ?? "anon"}`;
   const [reports, setReports, reportsLoaded] = useStoredState<Report[]>(`${ns}:reports`, []);
   const [audios, setAudios, audiosLoaded] = useStoredState<AudioMeta[]>(`${ns}:audios`, []);
   const [customTemplates, setCustomTemplates] = useStoredState<Template[]>(`${ns}:templates`, []);
@@ -67,7 +67,7 @@ export function AppProvider({ user, children }: { user: PublicUser | null; child
     name: user?.name ?? "",
     specialty: user?.specialty ?? "",
   });
-  const [accessCode, setAccessCode] = useStoredState("mediscribe:access-code", "");
+  const [accessCode, setAccessCode] = useStoredState("juli:access-code", "");
   const [activeId, setActiveId] = useStoredState(`${ns}:active-report`, "");
   const [status, setStatus] = useState<ServiceStatus | null>(null);
   const [busy, setBusy] = useState<Record<string, Busy | undefined>>({});

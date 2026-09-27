@@ -13,15 +13,15 @@ La app está pensada para **Vercel**; el plan gratuito (Hobby) es suficiente. No
 
 ## 1. Subir el código a GitHub
 
-1. En <https://github.com/new> crea un repositorio llamado `mediscribe-ai`. Déjalo **vacío**: sin README, sin
+1. En <https://github.com/new> crea un repositorio llamado `juli`. Déjalo **vacío**: sin README, sin
    .gitignore y sin licencia. Puede ser público, que es lo ideal para un portafolio.
 2. En la carpeta del proyecto:
 
 ```bash
 git add .
 git status            # comprueba que NO aparezca .env.local
-git commit -m "MediScribe AI: MVP de notas clínicas con IA"
-git remote add origin https://github.com/<tu-usuario>/mediscribe-ai.git
+git commit -m "Juli: MVP de notas clínicas con IA"
+git remote add origin https://github.com/<tu-usuario>/juli.git
 git push -u origin main
 ```
 
@@ -31,7 +31,7 @@ git push -u origin main
 ## 2. Importar en Vercel
 
 1. Entra a <https://vercel.com/signup> con **Continue with GitHub**.
-2. Ve a <https://vercel.com/new>, busca `mediscribe-ai` y pulsa **Import**. Si no aparece, pulsa *Adjust GitHub App
+2. Ve a <https://vercel.com/new>, busca `juli` y pulsa **Import**. Si no aparece, pulsa *Adjust GitHub App
    Permissions* y dale acceso al repositorio.
 3. Framework Preset: **Next.js**, que se detecta solo. No cambies *Build Command* ni *Output Directory*.
 
@@ -65,7 +65,7 @@ Opcionales:
 | `OPENAI_MODEL=gpt-5.4-mini` | Para abaratar el llenado de notas. |
 | `RATE_LIMIT_PER_MINUTE` | Peticiones por minuto e IP (por defecto 10). |
 
-Pulsa **Deploy**. En 1–2 minutos tendrás una URL tipo `https://mediscribe-ai-xxxx.vercel.app`.
+Pulsa **Deploy**. En 1–2 minutos tendrás una URL tipo `https://juli-xxxx.vercel.app`.
 
 > Si añades o cambias variables **después** del primer despliegue, ve a *Deployments → ⋯ → Redeploy* para que se
 > apliquen.

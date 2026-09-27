@@ -18,14 +18,14 @@ export type PublicUser = Omit<AuthUser, "password">;
 export const DEMO_USERS: AuthUser[] = [
   {
     id: "dr-martinez",
-    email: "dr.martinez@mediscribe.demo",
+    email: "dr.martinez@juli.demo",
     password: "Demo2026!",
     name: "Dr. Carlos Martínez",
     specialty: "Cardiología",
   },
   {
     id: "dra-lopez",
-    email: "dra.lopez@mediscribe.demo",
+    email: "dra.lopez@juli.demo",
     password: "Demo2026!",
     name: "Dra. Ana López",
     specialty: "Medicina Familiar",

@@ -1,4 +1,4 @@
-# MediScribe AI: notas clínicas con IA a partir de la voz
+# Juli: notas clínicas con IA a partir de la voz
 
 > Graba o dicta la consulta, revisa la transcripción y obtén la nota médica estructurada en tu plantilla
 > (SOAP, historia clínica, evolución, urgencias, receta… o una propia). Gestiona informes y audios desde un panel,
@@ -13,8 +13,8 @@ OpenAI API (GPT + Whisper) · Web Speech API · IndexedDB · Zod · Vitest
 
 | Cuenta | Correo | Contraseña |
 |---|---|---|
-| Dr. Carlos Martínez · Cardiología | `dr.martinez@mediscribe.demo` | `Demo2026!` |
-| Dra. Ana López · Medicina Familiar | `dra.lopez@mediscribe.demo` | `Demo2026!` |
+| Dr. Carlos Martínez · Cardiología | `dr.martinez@juli.demo` | `Demo2026!` |
+| Dra. Ana López · Medicina Familiar | `dra.lopez@juli.demo` | `Demo2026!` |
 
 Las credenciales son públicas a propósito y aparecen en la pantalla de login con un botón *Usar*. Cada cuenta tiene
 sus propios informes, audios y plantillas.
@@ -101,8 +101,8 @@ eligió cada cosa en [docs/DECISIONS.md](docs/DECISIONS.md).
 Requisitos: Node.js 20+.
 
 ```bash
-git clone https://github.com/<tu-usuario>/mediscribe-ai.git
-cd mediscribe-ai
+git clone https://github.com/<tu-usuario>/juli.git
+cd juli
 npm install
 cp .env.example .env.local   # opcional: sin claves arranca en modo demo
 npm run dev
@@ -219,7 +219,7 @@ docs/                            # arquitectura, API, despliegue, decisiones, ca
 
 ## Aviso
 
-MediScribe AI es un prototipo con fines demostrativos. **No es un dispositivo médico** y no sustituye el juicio
+Juli es un prototipo con fines demostrativos. **No es un dispositivo médico** y no sustituye el juicio
 clínico: toda nota generada debe ser revisada y validada por el profesional responsable. Para su uso con datos reales
 de pacientes se requieren acuerdos de tratamiento de datos con los proveedores de IA y el cumplimiento de la normativa
 aplicable (p. ej. NOM-004/NOM-024 en México, RGPD en la UE, HIPAA en EE. UU.).

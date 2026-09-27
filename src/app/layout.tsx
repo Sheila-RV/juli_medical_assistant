@@ -9,7 +9,7 @@ import "./globals.css";
 const inter = Inter({ variable: "--font-inter", subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: { default: "MediScribe AI", template: "%s · MediScribe AI" },
+  title: { default: "Juli", template: "%s · Juli" },
   description:
     "Captura la consulta por voz y obtén la nota clínica estructurada en tu plantilla (SOAP, historia clínica, evolución…), con gestión de informes y audios.",
 };

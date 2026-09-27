@@ -39,7 +39,7 @@ export function toFhirBundle(report: Report, author: string) {
     resourceType: "Bundle",
     type: "document",
     timestamp: new Date().toISOString(),
-    identifier: { system: "urn:mediscribe:report", value: report.id },
+    identifier: { system: "urn:juli:report", value: report.id },
     entry: [
       {
         fullUrl: `urn:uuid:${report.id}`,

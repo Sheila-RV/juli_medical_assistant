@@ -1,6 +1,6 @@
 # Arquitectura
 
-MediScribe AI es una aplicación **Next.js (App Router)** desplegada como un único proyecto:
+Juli es una aplicación **Next.js (App Router)** desplegada como un único proyecto:
 - una interfaz React con cinco vistas;
 - tres endpoints serverless (`/api/*`) que actúan como *backend-for-frontend*. Las claves de API viven solo en el
   servidor.
@@ -63,7 +63,7 @@ sequenceDiagram
     P-->>B: 307 → /login?next=/informes
     B->>L: POST { email, password }
     L->>L: compara en tiempo constante · firma { uid, exp } con HMAC-SHA256
-    L-->>B: Set-Cookie ms_session (HttpOnly, SameSite=Lax, Secure en prod, 12 h)
+    L-->>B: Set-Cookie juli_session (HttpOnly, SameSite=Lax, Secure en prod, 12 h)
     B->>P: GET /informes (con cookie) → pasa
     B->>API: POST con cookie → requireUser() → 200 (o 401 sin sesión)
 ```
@@ -73,7 +73,7 @@ sequenceDiagram
 - **Doble control**: `proxy.ts` hace una comprobación rápida para las páginas. Cada endpoint de IA vuelve a
   verificar la sesión con `requireUser()`, como recomienda la guía de Next.js, así que la API no depende del proxy.
 - **Datos por médico**: el `AppProvider` usa el `id` del usuario como espacio de nombres en `localStorage`
-  (`mediscribe:<uid>:reports`…) y se vuelve a montar al cambiar de usuario.
+  (`juli:<uid>:reports`…) y se vuelve a montar al cambiar de usuario.
 - **Usuarios**: dos cuentas de demo con credenciales públicas. `AUTH_USERS` las reemplaza por usuarios propios y
   entonces el login deja de mostrarlas.
 
@@ -128,7 +128,7 @@ AudioMeta { id, reportId, createdAt, durationSec, mimeType, size, name,
 ```
 
 - Informes, plantillas propias y perfil → `localStorage` (texto, pequeño).
-- Binarios de audio → IndexedDB (`mediscribe/audios`), referenciados por `AudioMeta.id`.
+- Binarios de audio → IndexedDB (`juli/audios`), referenciados por `AudioMeta.id`.
 - Las acciones asíncronas (transcribir, procesar) viven en el `AppProvider`. El estado *ocupado* y los errores se
   guardan por informe, así que siguen su curso aunque el médico navegue a otra vista.
 - Los borradores vacíos (sin paciente, transcripción, audio ni nota) se descartan automáticamente al abrir una

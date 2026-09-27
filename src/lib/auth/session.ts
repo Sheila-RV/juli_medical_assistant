@@ -6,10 +6,10 @@ import { findUserById, toPublicUser, type PublicUser } from "./users";
  * El servidor no guarda nada; basta con AUTH_SECRET para verificarla.
  * Sin "server-only" a propósito: el proxy también la importa.
  */
-export const SESSION_COOKIE = "ms_session";
+export const SESSION_COOKIE = "juli_session";
 export const SESSION_TTL_SECONDS = 12 * 60 * 60; // una jornada
 
-const DEV_SECRET = "mediscribe-demo-secret-cambia-esto-en-produccion";
+const DEV_SECRET = "juli-demo-secret-cambia-esto-en-produccion";
 
 function secret() {
   return process.env.AUTH_SECRET || DEV_SECRET;

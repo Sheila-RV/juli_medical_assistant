@@ -4,7 +4,7 @@
  * Almacén de audios en IndexedDB (localStorage no admite binarios ni tamaños grandes).
  * Los audios nunca salen del navegador salvo para transcribirse.
  */
-const DB_NAME = "mediscribe";
+const DB_NAME = "juli";
 const STORE = "audios";
 
 let dbPromise: Promise<IDBDatabase> | null = null;

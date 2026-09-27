@@ -96,7 +96,7 @@ export function SettingsView() {
     const url = URL.createObjectURL(new Blob([JSON.stringify(data, null, 2)], { type: "application/json" }));
     const a = document.createElement("a");
     a.href = url;
-    a.download = `mediscribe-copia-${new Date().toISOString().slice(0, 10)}.json`;
+    a.download = `juli-copia-${new Date().toISOString().slice(0, 10)}.json`;
     a.click();
     URL.revokeObjectURL(url);
   }

@@ -11,7 +11,7 @@ afterEach(() => {
 describe("sesión firmada", () => {
   it("un token válido devuelve el usuario sin la contraseña", () => {
     const user = userFromToken(createSessionToken("dr-martinez"));
-    expect(user).toEqual({ id: "dr-martinez", email: "dr.martinez@mediscribe.demo", name: "Dr. Carlos Martínez", specialty: "Cardiología" });
+    expect(user).toEqual({ id: "dr-martinez", email: "dr.martinez@juli.demo", name: "Dr. Carlos Martínez", specialty: "Cardiología" });
     expect(user).not.toHaveProperty("password");
   });
 
@@ -39,8 +39,8 @@ describe("sesión firmada", () => {
 
 describe("usuarios", () => {
   it("valida credenciales sin distinguir mayúsculas en el correo", () => {
-    expect(findUserByCredentials(" DR.MARTINEZ@mediscribe.demo ", "Demo2026!")?.id).toBe("dr-martinez");
-    expect(findUserByCredentials("dr.martinez@mediscribe.demo", "otra")).toBeNull();
+    expect(findUserByCredentials(" DR.MARTINEZ@juli.demo ", "Demo2026!")?.id).toBe("dr-martinez");
+    expect(findUserByCredentials("dr.martinez@juli.demo", "otra")).toBeNull();
     expect(findUserByCredentials("nadie@x.com", "Demo2026!")).toBeNull();
   });
 
@@ -75,7 +75,7 @@ describe("POST /api/auth/login", () => {
   }
 
   it("con credenciales correctas crea una cookie HttpOnly", async () => {
-    const res = await login({ email: "dra.lopez@mediscribe.demo", password: "Demo2026!" });
+    const res = await login({ email: "dra.lopez@juli.demo", password: "Demo2026!" });
     expect(res.status).toBe(200);
     expect((await res.json()).user.name).toBe("Dra. Ana López");
     const cookie = res.headers.get("set-cookie") ?? "";
@@ -85,7 +85,7 @@ describe("POST /api/auth/login", () => {
   });
 
   it("con credenciales incorrectas responde 401 sin cookie", async () => {
-    const res = await login({ email: "dra.lopez@mediscribe.demo", password: "mal" });
+    const res = await login({ email: "dra.lopez@juli.demo", password: "mal" });
     expect(res.status).toBe(401);
     expect(res.headers.get("set-cookie")).toBeNull();
   });
